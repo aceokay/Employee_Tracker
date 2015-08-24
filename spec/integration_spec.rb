@@ -15,4 +15,15 @@ describe('employee_tracker app',{:type => :feature}) do
     end
   end
 
+  describe('viewing all the employees in a division') do
+    it('allows a user to view the employees that belong to a specific division') do
+      division = Division.create({:name => 'Marketing', :id => nil})
+      visit('/')
+      fill_in('name', :with => 'HR')
+      click_button('Add Division')
+      click_link(division.name)
+      expect(page).to have_content(division.name())
+    end
+  end
+
 end

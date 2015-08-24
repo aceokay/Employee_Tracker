@@ -1,0 +1,19 @@
+<h1><%= @division.name %></h1>
+
+<% if @employees.any?() %>
+  <h3>Employees:</h3>
+  <% @employees.each() do |person| %>
+    <li><%= person.name()%></li>
+  <% end %>
+
+<% else %>
+  <p> You have no employees in this division! </p>
+<% end %>
+<form action="/divisions/<%= @division.id() %>" method="post">
+  <label for="name"> Name: </label>
+  <input type="text" name="name" id="name" class="form-control">
+  <br>
+  <button name="button" class="btn" type="submit"> Add Employee </button>
+</form>
+<br>
+<a href="/">Go back to the Index Page</a>
