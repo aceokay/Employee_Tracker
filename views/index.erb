@@ -1,0 +1,17 @@
+<h1>Welcome to the Employee Tracker</h1>
+
+<% if @divisions.any?() %>
+  <h3>Divisions:</h3>
+  <% @divisions.each() do |division| %>
+    <li><a href="/divisions/<%=division.id() %>"><%= division.name()%></a></li>
+  <% end %>
+
+<% else %>
+  <p> You have no divisions! </p>
+<% end %>
+<form action="/" method="post">
+  <label for="description"> Name: </label>
+  <input type="text" name="name" id="name" class="form-control">
+  <br>
+  <button name="button" class="btn" type="submit"> Add Division </button>
+</form>
