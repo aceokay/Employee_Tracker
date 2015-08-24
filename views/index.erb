@@ -15,3 +15,17 @@
   <br>
   <button name="button" class="btn" type="submit"> Add Division </button>
 </form>
+
+<form action="/" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <label for="division_id">Select a Division</label>
+  <label for="description"> Name: </label>
+  <input type="text" name="name" id="name" class="form-control">
+  <br>
+  <select id='division_id' name='division_id' type='text'>
+    <% @divisions.each() do |division| %>
+      <option value="<%= division.id()%>"> <%= division.name() %> </option>
+    <% end %>
+  </select>
+  <button name="button" class="btn" type="submit"> Update Division </button>
+</form>

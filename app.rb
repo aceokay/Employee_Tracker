@@ -18,6 +18,15 @@ post('/') do
   erb(:index)
 end
 
+patch('/') do
+  @divisions = Division.all()
+  division_id = params.fetch('division_id').to_i()
+  name = params.fetch('name')
+  @division = Division.find(division_id)
+  @division.update({:name => name})
+  erb(:index)
+end
+
 get('/divisions/:id') do
   division_id = params.fetch('id').to_i()
   @division = Division.find(division_id)
